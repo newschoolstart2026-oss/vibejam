@@ -1255,6 +1255,7 @@ $('#form').addEventListener('submit', async e => {
   e.preventDefault();
   $$('.field.bad').forEach(f => f.classList.remove('bad'));
   if(Date.now() > DEADLINE) return status('err', t('f_closed'));
+  if(Date.now() < Date.parse(CONFIG.start)) return status('err', t('f_notready'));
   const v = id => $(id).value.trim();
   const need = ['#fName','#fCity','#fCourse','#fMentor','#fTheme','#fSite','#fEgg','#fPrompts'];
   let bad = need.filter(id => !v(id));
