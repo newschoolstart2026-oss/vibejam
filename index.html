@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Vibe Jam «Мой мир» — конкурс Alfa Z</title>
-<meta name="description" content="Сделай с помощью ИИ сайт про свой мир — с настоящей игрой внутри. Конкурс Alfa Z, 12–18 октября 2026. Приз — подарочный бокс.">
+<meta name="description" content="Сделай с помощью ИИ сайт про свой мир — с настоящей игрой внутри. Конкурс Alfa Z, 10–16 октября 2026. Приз — подарочный бокс.">
 <meta property="og:title" content="Vibe Jam «Мой мир» — конкурс Alfa Z">
 <meta property="og:description" content="7 дней, сайт с игрой, сделанный с ИИ. Приз — подарочный бокс в твой город.">
 <meta property="og:type" content="website">
@@ -255,6 +255,21 @@ section.alt{background:var(--bg2)}
 .crit li::before{content:"";flex:none;width:7px;height:7px;border-radius:50%;background:var(--coral);margin-top:8px}
 .scores{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
 .zero{margin-top:18px;font-size:15px}
+/* ТЗ */
+.tz{padding:28px;display:grid;gap:18px}
+.tz-top{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between}
+.tz-meta{display:flex;flex-wrap:wrap;gap:8px}
+.tz-meta span{padding:7px 14px;border-radius:999px;background:var(--coral-soft);font-weight:700;font-size:14px}
+.tz-meta span:first-child{background:var(--lime);color:var(--on-lime)}
+.tz-list{list-style:none;counter-reset:tz}
+.tz-list>li{counter-increment:tz;display:grid;grid-template-columns:40px 1fr;column-gap:14px;padding:18px 0;border-top:1px solid var(--line)}
+.tz-list>li::before{content:counter(tz);grid-row:span 2;width:36px;height:36px;border-radius:12px;display:grid;place-items:center;background:var(--coral);color:var(--on-coral);font-family:var(--display);font-weight:800;font-size:16px}
+.tz-list h3{font-size:18px;margin:6px 0 6px}
+.tz-list p{color:var(--muted);font-size:15px}
+.tz-list ul,.tz-list ol{margin:6px 0 0;padding-left:20px;display:grid;gap:6px;font-size:15px;color:var(--muted)}
+.tz-list li li b{color:var(--text)}
+.tz-list .after{margin-top:10px}
+@media (max-width:600px){.tz{padding:20px}.tz-top .btn{width:100%;justify-content:center}.tz-list>li{grid-template-columns:1fr}.tz-list>li::before{grid-row:auto;margin-bottom:4px}}
 @media (max-width:1000px){.scores{grid-template-columns:repeat(2,1fr)}}
 @media (max-width:620px){.scores{grid-template-columns:1fr}.bar div{font-size:12px}}
 
@@ -346,6 +361,7 @@ footer p{color:var(--muted);font-size:14px}
       <span class="logo-mark">aZ</span><span class="logo-text">Vibe Jam</span>
     </button>
     <nav class="nav" aria-label="Menu">
+      <a href="#tz" data-i18n="nav_tz"></a>
       <a href="#themes" data-i18n="nav_themes"></a>
       <a href="#bosses" data-i18n="nav_bosses"></a>
       <a href="#demo" data-i18n="nav_game"></a>
@@ -375,7 +391,7 @@ footer p{color:var(--muted);font-size:14px}
       <h1 class="display">VIBE JAM<br><span class="l2" data-i18n="hero_title2"></span></h1>
       <p class="lead" data-i18n="hero_lead"></p>
       <div class="btns">
-        <a class="btn btn-primary" href="#how"><span data-i18n="hero_cta1"></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="btn btn-primary" href="#tz"><span data-i18n="hero_cta1"></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         <a class="btn btn-ghost" href="#demo"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5z"/></svg><span data-i18n="hero_cta2"></span></a>
       </div>
       <div class="countdown" id="countdown">
@@ -409,6 +425,24 @@ footer p{color:var(--muted);font-size:14px}
       <span class="sticker s1">+1</span>
       <span class="sticker s2" data-i18n="sticker_top"></span>
       <span class="sticker s3" data-i18n="sticker_ai"></span>
+    </div>
+  </div>
+</section>
+
+<!-- TZ -->
+<section class="s alt" id="tz">
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow" data-i18n="tz_eyebrow"></span>
+      <h2 data-i18n="tz_title"></h2>
+      <p data-i18n="tz_sub"></p>
+    </div>
+    <div class="card tz">
+      <div class="tz-top">
+        <div class="tz-meta" id="tzMeta"></div>
+        <button class="btn btn-primary" type="button" id="tzCopy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg><span data-i18n="tz_copy"></span></button>
+      </div>
+      <ol class="tz-list" id="tzList"></ol>
     </div>
   </div>
 </section>
@@ -661,19 +695,26 @@ footer p{color:var(--muted);font-size:14px}
 /* ===== НАСТРОЙКИ ===== */
 const CONFIG = {
   endpoint: 'https://script.google.com/macros/s/AKfycbxCzlV8qPlYWkhiwkSh3e_PD-C0JJGfkRF1vV0nlJhyRI7fuLaXcmKsVxLEzebpxkhT/exec',                                 // URL веб-приложения Google Apps Script (заканчивается на /exec)
-  start:    '2026-10-12T00:00:00+05:00',
-  deadline: '2026-10-18T23:59:59+05:00'
+  start:    '2026-10-10T00:00:00+05:00',
+  deadline: '2026-10-16T23:59:59+05:00'
 };
 
 /* ===== ТЕКСТЫ ===== */
 const T = {
 ru:{
-  nav_themes:'Темы', nav_bosses:'Условия', nav_game:'Игра', nav_score:'Оценка', nav_dates:'Сроки', nav_submit:'Сдать работу',
+  nav_themes:'Темы', nav_bosses:'Условия', nav_game:'Игра', nav_score:'Оценка', nav_dates:'Сроки', nav_submit:'Сдать работу', nav_tz:'ТЗ',
+  tz_eyebrow:'Техническое задание', tz_title:'ТЗ конкурса', tz_sub:'Всё задание на одном экране. Скопируй его и держи под рукой — или вставь в ChatGPT, чтобы придумать идею.',
+  tz_m1:'10–16 октября', tz_m2:'Сдать до 16 октября, 23:59', tz_m3:'Только бесплатные инструменты', tz_copy:'Скопировать ТЗ', tz_copied:'ТЗ скопировано',
+  tz_h1:'Тема', tz_p1:'Выбери одну из 5 тем. Сайт должен быть про тебя: не «про футбол вообще», а про твой футбол.',
+  tz_h2:'Что должно быть на сайте', tz_h3:'6 обязательных условий', tz_p3:'Каждое — 5 баллов. Перед сдачей проверь все шесть сам.',
+  tz_h4:'Общие требования', tz_h5:'Чем делать', tz_p5:'Только бесплатные инструменты: Gemini Canvas, Lovable, Bolt, ChatGPT. Код руками не пишем — его пишет ИИ.',
+  tz_h6:'Что сдать до 16 октября, 23:59', tz_l6:['Ссылку на сайт — открывается без входа в аккаунт','1–3 главных промпта','Где спрятана пасхалка','По желанию: 1–3 скриншота и видео до 60 секунд (можно снять экран на телефон)'],
+  tz_p6:'Сдавай через форму внизу страницы. Не получается — отправь всё ментору в WhatsApp.', tz_h7:'Как оцениваем', tz_pts:'баллов',
   theme_aria:'Тёмная или светлая тема',
-  hero_eyebrow:'Конкурс Alfa Z · 12–18 октября', hero_title2:'Мой мир',
+  hero_eyebrow:'Конкурс Alfa Z · 10–16 октября', hero_title2:'Мой мир',
   hero_lead:'Сделай с помощью ИИ сайт про свой мир — с настоящей игрой внутри. Кода руками не пишем: идея и дизайн твои, код пишет ИИ.',
   hero_cta1:'Хочу участвовать', hero_cta2:'Сыграть в пример',
-  cd_label:'До сдачи работ', cd_d:'дн', cd_h:'ч', cd_m:'мин', cd_s:'сек', cd_closed:'Приём работ закрыт. Итоги — 21 октября',
+  cd_label:'До сдачи работ', cd_d:'дн', cd_h:'ч', cd_m:'мин', cd_s:'сек', cd_closed:'Приём работ закрыт. Итоги — 19 октября',
   chip1:'7 дней', chip2:'Бесплатно', chip3:'Любой курс и любой урок', chip4:'Русский и казахский',
   mock_title:'Мой мир', sticker_top:'ТОП-5', sticker_ai:'сделано с ИИ',
   how_eyebrow:'Как это работает', how_title:'4 шага до бокса', how_sub:'Кода руками не пишешь. Нужны идея, фантазия и хорошие промпты.',
@@ -693,11 +734,11 @@ ru:{
   prompts_eyebrow:'Шпаргалка', prompts_title:'Промпты для старта', prompts_sub:'Пример про футбол — замени на свою тему. Нажми «Скопировать» и вставь в ИИ.', copy:'Скопировать', copied:'Скопировано!',
   score_eyebrow:'Оценка', score_title:'Как оцениваем', score_sub:'100 баллов. Жюри смотрит на то, что видит обычный человек: красиво ли, понятно ли, интересно ли и работает ли.',
   zero:'За сложность кода — 0 баллов: неважно, ты на 1-м уроке или на 30-м.',
-  dates_eyebrow:'Сроки', dates_title:'12–21 октября', now:'сейчас',
+  dates_eyebrow:'Сроки', dates_title:'10–19 октября', now:'сейчас',
   prize_eyebrow:'Приз', prize_title:'За что стараемся',
   prize_main_t:'Подарочный бокс победителю', prize_main_d:'Отправим Казпочтой прямо в твой город. Что внутри — сюрприз.',
   prize_all_t:'Всем, кто победит 6 боссов', prize_all_d:'Электронный сертификат участника. Лучшие работы покажем в Instagram Alfa Z — только с разрешения родителей.',
-  submit_eyebrow:'Сдача', submit_title:'Отправь свою работу', submit_sub:'До 18 октября, 23:59 по времени Астаны. Заполни форму — ментор проверит ссылку в течение суток.',
+  submit_eyebrow:'Сдача', submit_title:'Отправь свою работу', submit_sub:'До 16 октября, 23:59 по времени Астаны. Заполни форму — ментор проверит ссылку в течение суток.',
   f_name:'Имя и фамилия', f_name_ph:'Например: Айдана Серикова', f_city:'Город или аул', f_city_ph:'Нужен для доставки приза',
   f_course:'Направление', f_mentor:'Ментор', f_mentor_ph:'Имя твоего ментора', f_theme:'Тема сайта', f_choose:'Выбери…',
   f_site:'Ссылка на сайт', f_site_hint:'Проверь, что сайт открывается без входа в аккаунт.',
@@ -710,7 +751,7 @@ ru:{
   f_ok:'Работа отправлена! Ментор проверит ссылку в течение суток. Удачи!',
   f_err:'Не получилось отправить. Проверь интернет и попробуй ещё раз — или отправь всё ментору в WhatsApp.',
   f_req:'Заполни поля, отмеченные звёздочкой.', f_url_bad:'Ссылка должна начинаться с https://', f_file_big:'Картинка больше 10 МБ — выбери другую.', f_max3:'Можно не больше 3 скриншотов.',
-  f_closed:'Приём работ закрыт 18 октября в 23:59.', f_notready:'Форма откроется 12 октября. А пока — начинай делать сайт!',
+  f_closed:'Приём работ закрыт 16 октября в 23:59.', f_notready:'Форма откроется 10 октября. А пока — начинай делать сайт!',
   check_title:'Проверь себя перед отправкой', video_title:'Совет для видео',
   video_tip:'Держи телефон горизонтально, сделай яркость ноутбука на максимум и следи, чтобы на экране не было бликов. Лицо показывать не обязательно — достаточно экрана и голоса.',
   faq_eyebrow:'Вопросы', faq_title:'Частые вопросы',
@@ -718,12 +759,19 @@ ru:{
   egg_found:'Пасхалка найдена! Вот так это может работать и на твоём сайте.', copied_toast:'Промпт скопирован — вставь его в ИИ'
 },
 kz:{
-  nav_themes:'Тақырыптар', nav_bosses:'Шарттар', nav_game:'Ойын', nav_score:'Бағалау', nav_dates:'Мерзім', nav_submit:'Жұмыс тапсыру',
+  nav_themes:'Тақырыптар', nav_bosses:'Шарттар', nav_game:'Ойын', nav_score:'Бағалау', nav_dates:'Мерзім', nav_submit:'Жұмыс тапсыру', nav_tz:'Тапсырма',
+  tz_eyebrow:'Техникалық тапсырма', tz_title:'Байқау тапсырмасы', tz_sub:'Бүкіл тапсырма бір экранда. Көшіріп ал да, қолыңда ұста — немесе идея ойлап табу үшін ChatGPT-ге қой.',
+  tz_m1:'10–16 қазан', tz_m2:'16 қазан, 23:59-ға дейін тапсыр', tz_m3:'Тек тегін құралдар', tz_copy:'Тапсырманы көшіру', tz_copied:'Тапсырма көшірілді',
+  tz_h1:'Тақырып', tz_p1:'5 тақырыптың бірін таңда. Сайт сен туралы болуы керек: «жалпы футбол туралы» емес, сенің футболың туралы.',
+  tz_h2:'Сайтта не болуы керек', tz_h3:'6 міндетті шарт', tz_p3:'Әрқайсысы — 5 ұпай. Тапсырмас бұрын алтауын да өзің тексер.',
+  tz_h4:'Жалпы талаптар', tz_h5:'Немен жасаймыз', tz_p5:'Тек тегін құралдар: Gemini Canvas, Lovable, Bolt, ChatGPT. Кодты қолмен жазбаймыз — оны ЖИ жазады.',
+  tz_h6:'16 қазан, 23:59-ға дейін не тапсырасың', tz_l6:['Сайтқа сілтеме — аккаунтқа кірмей ашылуы керек','1–3 негізгі промпт','Пасхалка қайда жасырылғаны','Қаласаң: 1–3 скриншот және 60 секундқа дейінгі бейне (экранды телефонға түсіруге болады)'],
+  tz_p6:'Беттің төменгі жағындағы форма арқылы тапсыр. Шықпаса — бәрін менторыңа WhatsApp-қа жібер.', tz_h7:'Қалай бағалаймыз', tz_pts:'ұпай',
   theme_aria:'Қараңғы немесе ашық тақырып',
-  hero_eyebrow:'Alfa Z байқауы · 12–18 қазан', hero_title2:'Менің әлемім',
+  hero_eyebrow:'Alfa Z байқауы · 10–16 қазан', hero_title2:'Менің әлемім',
   hero_lead:'Жасанды интеллекттің көмегімен өз әлемің туралы сайт жаса — ішінде нағыз ойыны бар. Кодты қолмен жазбаймыз: идея мен дизайн сенікі, кодты ЖИ жазады.',
   hero_cta1:'Қатысқым келеді', hero_cta2:'Мысал ойынды ойнау',
-  cd_label:'Жұмыс тапсыруға дейін', cd_d:'күн', cd_h:'сағ', cd_m:'мин', cd_s:'сек', cd_closed:'Жұмыс қабылдау жабылды. Қорытынды — 21 қазанда',
+  cd_label:'Жұмыс тапсыруға дейін', cd_d:'күн', cd_h:'сағ', cd_m:'мин', cd_s:'сек', cd_closed:'Жұмыс қабылдау жабылды. Қорытынды — 19 қазанда',
   chip1:'7 күн', chip2:'Тегін', chip3:'Кез келген курс пен сабақ', chip4:'Қазақша және орысша',
   mock_title:'Менің әлемім', sticker_top:'ТОП-5', sticker_ai:'ЖИ-мен жасалған',
   how_eyebrow:'Қалай өтеді', how_title:'Боксқа дейін 4 қадам', how_sub:'Кодты қолмен жазбайсың. Идея, қиял және жақсы промпттар керек.',
@@ -743,11 +791,11 @@ kz:{
   prompts_eyebrow:'Шпаргалка', prompts_title:'Бастауға арналған промпттар', prompts_sub:'Мысал футбол туралы — өз тақырыбыңа ауыстыр. «Көшіру» батырмасын басып, ЖИ-ге қой.', copy:'Көшіру', copied:'Көшірілді!',
   score_eyebrow:'Бағалау', score_title:'Қалай бағалаймыз', score_sub:'100 ұпай. Қазылар қарапайым адам көретін нәрсеге қарайды: әдемі ме, түсінікті ме, қызық па және жұмыс істей ме.',
   zero:'Кодтың күрделілігі үшін — 0 ұпай: 1-сабақта жүрсің бе, 30-сабақта ма, бәрібір.',
-  dates_eyebrow:'Мерзім', dates_title:'12–21 қазан', now:'қазір',
+  dates_eyebrow:'Мерзім', dates_title:'10–19 қазан', now:'қазір',
   prize_eyebrow:'Жүлде', prize_title:'Не үшін тырысамыз',
   prize_main_t:'Жеңімпазға сыйлық бокс', prize_main_d:'Қазпошта арқылы тура сенің қалаңа жібереміз. Ішінде не барын — тосынсый.',
   prize_all_t:'6 боссты жеңгендердің бәріне', prize_all_d:'Қатысушының электронды сертификаты. Үздік жұмыстарды Alfa Z Instagram-ында көрсетеміз — тек ата-ананың рұқсатымен.',
-  submit_eyebrow:'Тапсыру', submit_title:'Жұмысыңды жібер', submit_sub:'18 қазан, Астана уақытымен 23:59-ға дейін. Форманы толтыр — ментор сілтемені бір тәулік ішінде тексереді.',
+  submit_eyebrow:'Тапсыру', submit_title:'Жұмысыңды жібер', submit_sub:'16 қазан, Астана уақытымен 23:59-ға дейін. Форманы толтыр — ментор сілтемені бір тәулік ішінде тексереді.',
   f_name:'Аты-жөнің', f_name_ph:'Мысалы: Айдана Серікова', f_city:'Қала немесе ауыл', f_city_ph:'Жүлдені жеткізу үшін керек',
   f_course:'Бағыт', f_mentor:'Ментор', f_mentor_ph:'Ментордың аты', f_theme:'Сайт тақырыбы', f_choose:'Таңда…',
   f_site:'Сайт сілтемесі', f_site_hint:'Сайт аккаунтқа кірмей ашылатынын тексер.',
@@ -760,7 +808,7 @@ kz:{
   f_ok:'Жұмыс жіберілді! Ментор сілтемені бір тәулік ішінде тексереді. Сәттілік!',
   f_err:'Жіберу мүмкін болмады. Интернетті тексеріп, қайта көр — немесе бәрін менторыңа WhatsApp-қа жібер.',
   f_req:'Жұлдызшамен белгіленген жолдарды толтыр.', f_url_bad:'Сілтеме https:// деп басталуы керек', f_file_big:'Сурет 10 МБ-тан үлкен — басқасын таңда.', f_max3:'3 скриншоттан артық болмайды.',
-  f_closed:'Жұмыс қабылдау 18 қазан, 23:59-да жабылды.', f_notready:'Форма 12 қазанда ашылады. Әзірге сайтыңды жасай бер!',
+  f_closed:'Жұмыс қабылдау 16 қазан, 23:59-да жабылды.', f_notready:'Форма 10 қазанда ашылады. Әзірге сайтыңды жасай бер!',
   check_title:'Жібермес бұрын өзіңді тексер', video_title:'Бейнеге кеңес',
   video_tip:'Телефонды көлденең ұста, ноутбук жарықтығын ең жоғары қыл, экранға жарық шағылыспасын. Бетіңді көрсету міндетті емес — экран мен дауыс жеткілікті.',
   faq_eyebrow:'Сұрақтар', faq_title:'Жиі қойылатын сұрақтар',
@@ -786,7 +834,7 @@ steps:[
   {ru:['Выбери тему','Одну из 5: увлечение, город, семья, придуманный мир или мечта.'], kz:['Тақырып таңда','5-тің бірін: хобби, қала, отбасы, ойдан шығарылған әлем немесе арман.']},
   {ru:['Сделай сайт с ИИ','Gemini Canvas, Lovable или Bolt — бесплатно. Пиши промпты, проверяй, улучшай.'], kz:['ЖИ-мен сайт жаса','Gemini Canvas, Lovable немесе Bolt — тегін. Промпт жаз, тексер, жақсарт.']},
   {ru:['Победи 6 боссов','Шесть обязательных условий. Каждое кажется простым, но с подвохом.'], kz:['6 боссты жең','Алты міндетті шарт. Әрқайсысы оңай көрінеді, бірақ қулығы бар.']},
-  {ru:['Отправь работу','Через форму внизу страницы до 18 октября, 23:59.'], kz:['Жұмысыңды жібер','Беттің төменгі жағындағы форма арқылы 18 қазан, 23:59-ға дейін.']}
+  {ru:['Отправь работу','Через форму внизу страницы до 16 октября, 23:59.'], kz:['Жұмысыңды жібер','Беттің төменгі жағындағы форма арқылы 16 қазан, 23:59-ға дейін.']}
 ],
 themes:[
   {icon:'star', ru:['Моё увлечение','Менің хоббиім','Футбол, аниме, рисование, музыка, бокс — что это и почему ты это любишь.','«Пенальти» или ритм-игра «Лови ноты»','про твоё увлечение'],
@@ -866,12 +914,12 @@ score:[
   {pts:10, ru:['Видео до 60 сек',['Понятно рассказал, что сделал и почему','Показал самое интересное','Качество съёмки не важно']], kz:['60 секундтық бейне',['Не істегеніңді және неге екенін түсінікті айттың','Ең қызығын көрсеттің','Түсіру сапасы маңызды емес']]}
 ],
 timeline:[
-  {s:'2026-10-12', e:'2026-10-12', ru:['12 окт','Старт конкурса'], kz:['12 қазан','Байқау басталады']},
-  {s:'2026-10-12', e:'2026-10-18', ru:['12–18 окт','Делаешь сайт'], kz:['12–18 қазан','Сайт жасайсың']},
-  {s:'2026-10-18', e:'2026-10-18', key:true, ru:['18 окт, 23:59','Дедлайн — отправь работу'], kz:['18 қазан, 23:59','Соңғы мерзім — жұмысыңды жібер']},
-  {s:'2026-10-19', e:'2026-10-20', ru:['19–20 окт','Работает жюри'], kz:['19–20 қазан','Қазылар бағалайды']},
-  {s:'2026-10-21', e:'2026-10-21', key:true, ru:['21 окт','Итоги и показ работ'], kz:['21 қазан','Қорытынды және жұмыстар көрмесі']},
-  {s:'2026-10-22', e:'2026-10-28', ru:['22–28 окт','Бокс едет к победителю'], kz:['22–28 қазан','Бокс жеңімпазға жол тартады']}
+  {s:'2026-10-10', e:'2026-10-10', ru:['10 окт','Старт конкурса'], kz:['10 қазан','Байқау басталады']},
+  {s:'2026-10-10', e:'2026-10-16', ru:['10–16 окт','Делаешь сайт'], kz:['10–16 қазан','Сайт жасайсың']},
+  {s:'2026-10-16', e:'2026-10-16', key:true, ru:['16 окт, 23:59','Дедлайн — отправь работу'], kz:['16 қазан, 23:59','Соңғы мерзім — жұмысыңды жібер']},
+  {s:'2026-10-17', e:'2026-10-18', ru:['17–18 окт','Работает жюри'], kz:['17–18 қазан','Қазылар бағалайды']},
+  {s:'2026-10-19', e:'2026-10-19', key:true, ru:['19 окт','Итоги и показ работ'], kz:['19 қазан','Қорытынды және жұмыстар көрмесі']},
+  {s:'2026-10-20', e:'2026-10-26', ru:['20–26 окт','Бокс едет к победителю'], kz:['20–26 қазан','Бокс жеңімпазға жол тартады']}
 ],
 courses:{ru:['CS50','Мобильная разработка','Геймдев','Веб-разработка','Бэкенд'], kz:['CS50','Мобильді әзірлеу','Геймдев','Веб-әзірлеу','Бэкенд']},
 faq:[
@@ -939,6 +987,38 @@ function applyTheme(th){
 }
 $('#themeBtn').addEventListener('click', () => applyTheme(document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'));
 
+/* ===== ТЗ ===== */
+function tzData(){
+  return [
+    {h:t('tz_h1'), p:t('tz_p1'), list:DATA.themes.map(th => th[lang][0])},
+    {h:t('tz_h2'), list:DATA.parts.map(p => [p[lang][0], p[lang][1]])},
+    {h:t('tz_h3'), p:t('tz_p3'), ol:true, list:DATA.bosses.map(b => [b[lang][0], b[lang][1]])},
+    {h:t('tz_h4'), list:DATA.reqs.map(r => r[lang])},
+    {h:t('tz_h5'), p:t('tz_p5')},
+    {h:t('tz_h6'), list:(T[lang].tz_l6 || T.ru.tz_l6), after:t('tz_p6')},
+    {h:t('tz_h7'), list:DATA.score.map(c => [c[lang][0], c.pts + ' ' + t('tz_pts')]), after:t('zero')}
+  ];
+}
+function renderTZ(){
+  $('#tzMeta').innerHTML = ['tz_m1','tz_m2','tz_m3'].map(k => `<span>${esc(t(k))}</span>`).join('');
+  $('#tzList').innerHTML = tzData().map(s => {
+    const tag = s.ol ? 'ol' : 'ul';
+    const items = s.list ? `<${tag}>${s.list.map(x => Array.isArray(x) ? `<li><b>${esc(x[0])}</b> — ${esc(x[1])}</li>` : `<li>${esc(x)}</li>`).join('')}</${tag}>` : '';
+    return `<li><h3>${esc(s.h)}</h3><div>${s.p ? `<p>${esc(s.p)}</p>` : ''}${items}${s.after ? `<p class="after">${esc(s.after)}</p>` : ''}</div></li>`;
+  }).join('');
+}
+function tzPlain(){
+  const head = 'Vibe Jam — ' + t('tz_title') + '\n' + ['tz_m1','tz_m2','tz_m3'].map(k => t(k)).join(' · ') + '\n' + location.origin + location.pathname;
+  return head + '\n\n' + tzData().map((s,i) => {
+    const lines = [(i+1) + '. ' + s.h];
+    if(s.p) lines.push(s.p);
+    if(s.list) s.list.forEach((x,j) => lines.push((s.ol ? '   ' + (j+1) + ') ' : '   — ') + (Array.isArray(x) ? x[0] + ' — ' + x[1] : x)));
+    if(s.after) lines.push(s.after);
+    return lines.join('\n');
+  }).join('\n\n');
+}
+$('#tzCopy').addEventListener('click', async () => { const ok = await copyText(tzPlain()); toast(ok ? t('tz_copied') : t('f_err')); });
+
 /* ===== РЕНДЕР ===== */
 function render(){
   document.documentElement.lang = lang === 'kz' ? 'kk' : 'ru';
@@ -953,6 +1033,7 @@ function render(){
 
   $('#steps').innerHTML = DATA.steps.map((s,i) => `<div class="card step"><div class="num">0${i+1}</div><h3>${esc(s[lang][0])}</h3><p>${esc(s[lang][1])}</p></div>`).join('');
 
+  renderTZ();
   const L = DATA.themeLabels[lang];
   $('#themeCards').innerHTML = DATA.themes.map(th => { const d = th[lang]; return `
     <article class="card theme"><div class="ic">${svg(th.icon)}</div>
